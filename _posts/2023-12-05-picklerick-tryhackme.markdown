@@ -1,5 +1,5 @@
 ---
-title: Picklericky - TryHackMe
+title: "Picklericky - TryHackMe"
 layout: post
 date: 2023-12-05 22:10
 tags:
