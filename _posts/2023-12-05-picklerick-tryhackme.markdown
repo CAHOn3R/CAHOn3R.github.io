@@ -11,10 +11,10 @@ image: /assets/images/picklericky.jpeg
 headerImage: true
 projects: false
 hidden: false
-description: Picklerick - TryHackMe
+description: "Picklerick - TryHackMe"
 category: blog
 author: CAHOn3R
-externalLink: false
+externalLink: true
 ---
 # Fase Reconocimiento
 
