@@ -16,11 +16,11 @@ externalLink: false
 ---
 
 <figure style="display: flex; align-items: center;">
-  <a href="/Pwned-TryHackMe" style="flex: 1; text-decoration: none; color: inherit; text-align: left;">
-    <h1 style="font-size: 32px; font-weight: bold; cursor: pointer;">Pwned</h1>
+  <a href="/Picklericky-TryHackMe" style="flex: 1; text-decoration: none; color: inherit; text-align: left;">
+    <h1 style="font-size: 32px; font-weight: bold; cursor: pointer;">Picklericky</h1>
   </a>
-  <a href="/Pwned-TryHackMe" style="flex: 0;">
-    <img src="/assets/images/pwned.jpeg" alt="Descripción de la imagen" class="imagen-grande">
+  <a href="/Picklericky-TryHackMe" style="flex: 0;">
+    <img src="/assets/images/picklericky.jpeg" alt="Descripción de la imagen" class="imagen-grande">
   </a>
 </figure>
 

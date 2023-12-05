@@ -1,5 +1,5 @@
 ---
-title: Lame - HackTheBox
+title: Picklericky - TryHackMe
 layout: post
 date: 2023-12-05 22:10
 tags:
@@ -7,7 +7,7 @@ tags:
   - Picklerick
   - information-disclosure
   - RCE
-image: /assets/images/picklerick.png
+image: /assets/images/picklericky.jpeg
 headerImage: true
 projects: false
 hidden: false
