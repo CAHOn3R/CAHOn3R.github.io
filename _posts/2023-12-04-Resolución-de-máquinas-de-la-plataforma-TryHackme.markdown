@@ -16,10 +16,10 @@ externalLink: false
 ---
 
 <figure style="display: flex; align-items: center;">
-  <a href="/Picklericky-TryHackMe" style="flex: 1; text-decoration: none; color: inherit; text-align: left;">
+  <a href="/picklerick-tryhackme" style="flex: 1; text-decoration: none; color: inherit; text-align: left;">
     <h1 style="font-size: 32px; font-weight: bold; cursor: pointer;">Picklericky</h1>
   </a>
-  <a href="/Picklericky-TryHackMe" style="flex: 0;">
+  <a href="/picklerick-tryhackme" style="flex: 0;">
     <img src="/assets/images/picklericky.jpeg" alt="Descripción de la imagen" class="imagen-grande">
   </a>
 </figure>
