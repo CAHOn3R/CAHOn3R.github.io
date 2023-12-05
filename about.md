@@ -4,42 +4,48 @@ layout: page
 ---
 ![Profile Image]({% if site.external-image %}{{ site.picture }}{% else %}{{ site.url }}/{{ site.picture }}{% endif %})
 
-<p>Lorem Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+<p>Soy una persona dedicada al hacking al 100%. Mi día a día consiste en estudiar y practicar constantemente. Mi meta a corto plazo es obtener la certificación OSCP y dedicarme profesionalmente a esto. Desde que entré en el mundo de la ciberseguridad, no he parado de aprender. He resuelto más de 200 máquinas en HackTheBox y otras 200 en plataformas como TryHackme, Vulnhub, entre otras. Aquí estaré publicando writeups casi a diario y algún blog sobre herramientas, vulnerabilidades, scripts, y más. Estad atentos a mi contenido y sentíos libres de comentar y preguntar lo que queráis.
+</p>
+<p>Siempre white,</p>
+<p>CAHOn3R</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+---
 
 <h2>Skills</h2>
 
 <ul class="skill-list">
-	<li>HTML - Jade - Haml - Erb</li>
-	<li>Responsive (Mobile First)</li>
-	<li>CSS (Stylus, Sass, Less)</li>
-	<li>Css Frameworks (Bootstrap, Foundation)</li>
-	<li>Javascript (Design Patterns, Tests)</li>
-	<li>AngularJS - ReactJS</li>
-	<li>Grunt - Gulp - Yeoman</li>
-	<li>Git</li>
-	<li>PHP</li>
-	<li>Python</li>
-	<li>MySQL - MongoDB</li>
-	<li>Scrum and Kanban</li>
-	<li>TDD e Continuous Integration</li>
+	<li>Programación en múltiples lenguajes (Python, bash).</li>
+	<li>Conocimiento avanzado de sistemas operativos (Linux, Windows).</li>
+	<li>Redes y protocolos de comunicación.</li>
+	<li>Hacking ético y pruebas de penetración.</li>
+	<li>Ingeniería inversa y análisis de malware.</li>
+	<li>Comprensión profunda de vulnerabilidades comunes (SQL injection, XSS, CSRF, etc.).</li>
+	<li>Experiencia en técnicas de evasión y elusión.</li>
+	<li>OSINT (Inteligencia de Fuentes Abiertas)</li>
+	<li>Herramientas de Hacking (nmap, Wireshark, BurpSuite, BloodHound, ghidra)</li>
+	<li>Esteganografía</li>
+    <li>Desarrollo de exploits y shellcoding.</li>
+	<li>Anonimato y privacidad en línea (VPN, Tor).</li>
+	<li>Seguridad en aplicaciones web (OWASP Top 10).</li>
+	<li>Cifrado y criptografía moderna.</li>
+	<li>Auditoría de seguridad en base de datos.</li>
+	<li>Seguridad en redes inalámbricas (WiFi, Bluetooth).</li>
+	<li>Hacking en dispositivos embebidos.</li>
+	<li>Herramientas de virtualización y contenedores (Docker, Kubernetes).</li>
+	<li>Automatización de tareas de seguridad.</li>
+	<li>Hacking ético en entornos cloud.</li>
 </ul>
 
-<h2>Projects</h2>
+<h2>Projectos</h2>
 
 <ul>
-	<li><a href="https://github.com/">Lorem Lorem</a></li>
-	<li><a href="https://github.com/">Ipsum Dolor</a></li>
-	<li><a href="https://github.com/">Dolor Lorem</a></li>
+	<li><a href="https://github.com/CAHOn3R/HackingDesktop">Hacking Desktop</a></li>
+	<li><a href="https://github.com/CAHOn3R">Github</a></li>
+</ul>
+
+<h2>Enlaces</h2>
+
+<ul>
+    <li><a href="https://www.linkedin.com/in/joseluiscalvente/">Perfil Linkdin</a></li>
+	<li><a href="https://app.hackthebox.com/users/436149">HackTheBox Respect</a></li>
 </ul>
