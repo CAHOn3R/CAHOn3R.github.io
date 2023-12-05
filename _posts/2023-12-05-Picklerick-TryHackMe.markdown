@@ -1,7 +1,7 @@
 ---
 title: "Picklerick - TryHackMe"
 layout: post
-date: 2023-12-05 22:10
+date: 2023-12-04 22:10
 tags:
   - TryHackMe
   - Picklerick
@@ -14,8 +14,10 @@ hidden: false
 description: "Picklerick - TryHackMe"
 category: blog
 author: CAHOn3R
-externalLink: true
+externalLink: false
 ---
+
+
 # Fase Reconocimiento
 
 Empezamos la **fase de reconocimiento** escaneando los puertos de la máquina para ver por donde podemos atacar...
