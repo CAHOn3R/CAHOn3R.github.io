@@ -49,7 +49,7 @@ observamos que hay 2 puertos abiertos **22 ssh y 80 http**, también podemos apr
 lo siguiente es echar un vistazo a la web
 
 <img src="/assets/images/capturas/Pasted image 20231205191224.png">
-Parece que Monty esta en apuros y tenemos que ayudarle, así que tenemos un nombre de usuario o al menos un posible nombre de usuario y algo que una pista **burpsuite?**
+Parece que Monty esta en apuros y tenemos que ayudarle, así que tenemos un nombre de usuario o al menos un posible nombre de usuario y algo que parece una pista **burpsuite?**
 
 hago **ctrl+u** para ver el código fuente y nos encontramos con un comentario
 <img src="/assets/images/capturas/Pasted image 20231205191516.png">
