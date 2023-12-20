@@ -1,7 +1,7 @@
 ---
 title: "Maquinas de HackTheBox"
 layout: post
-date: 2023-12-20 8:10
+date: 2023-12-20 7:10
 tag: 
 - hackthebox
 - Broker
