@@ -2,15 +2,21 @@
 layout: page
 title: Projects
 ---
+
 <section class="list">
     {% for post in site.posts %}
         {% if post.projects %}
             <div class="item {% if post.star %}star{% endif %}">
-                <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
-                    <aside><time datetime="{{ post.date | date:"%d-%m-%Y" }}">{{ post.date | date: "%b %d %Y" }}</time></aside>
-                    <h3 class="title">{{ post.title }}</h3>
-                </a>
+                <figure style="display: flex; align-items: center;">
+                    <a href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}" style="flex: 1; text-decoration: none; color: inherit; text-align: left;">
+                        <h3 class="title" style="font-size: 24px; font-weight: bold; cursor: pointer; display: inline-block; vertical-align: middle;">{{ post.title }}</h3>
+                    </a>
+                    <a href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}" style="flex: 0;">
+                        <img src="{{ post.image }}" alt="{{ post.title }}" class="imagen-grande" style="margin-left: 10px; margin-bottom: 0; margin-top: 0; vertical-align: middle; max-width: 80px; height: auto;">
+                    </a>
+                </figure>
             </div>
         {% endif %}
     {% endfor %}
 </section>
+
