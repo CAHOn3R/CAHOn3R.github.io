@@ -1,7 +1,7 @@
 ---
 title: "Authority - Hackthbox"
 layout: post
-date: 2023-12-20 22:10
+date: 2023-12-21 14:30
 tags:
   - Hackthbox
   - Authority
