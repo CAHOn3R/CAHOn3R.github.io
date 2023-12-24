@@ -168,14 +168,15 @@ cat *.decrypted
 ```
 
 Trate de iniciar sesión nuevamente, pero no me dejaba, me saltaba el siguiente error.
-catprura1![[Pasted image 20231221110808.png]]
+[<img src="/assets/images/hackthebox/Authority/captura1.png">](/assets/images/hackthebox/Authority/captura1.png)
 Sigo probando cosas y veo "Configuration manager", otorgo el pass del **pwm_admin_password** y ahora sí, estamos dentro del panel.
-![[captura3 2.png]]
+[<img src="/assets/images/hackthebox/Authority/captura2.png">](/assets/images/hackthebox/Authority/captura2.png)
+[<img src="/assets/images/hackthebox/Authority/captura3.png">](/assets/images/hackthebox/Authority/captura3.png)
 
 # Explotación
 
 Una vez estamos dentro del panel veo un warning en **ldap**, no se puede conectar al servicio debido a problemas de certificados, entre otras cosas.
-![[captura4 1.png]]
+[<img src="/assets/images/hackthebox/Authority/captura4.png">](/assets/images/hackthebox/Authority/captura4.png)
 Me descargo la configuración para ver que está pasando y vemos lo siguiente.
 ```html
 <setting key="ldap.serverUrls" modifyTime="2022-08-11T01:46:23Z" profile="default" syntax="STRING_ARRAY" syntaxVersion="0">
@@ -191,11 +192,11 @@ responder -I tun0 -v
 El servidor **LDAP** nos lo monta en el puerto **389**, así que ahí tratamos de apuntar desde la web, primero nos vamos al **editor**, una vez en el editor, nos dirigimos a:
 **LDAP -> LDAP Directories -> default -> Connection**.
 
-![[captura5.png]]
+[<img src="/assets/images/hackthebox/Authority/captura5.png">](/assets/images/hackthebox/Authority/captura5.png)
 Aquí cambiamos la dirección por la nuestra, quintándole la "s" de **Secure** a la conexión **LDAP** para que se pueda conectar a nuestro responder y ver si viajan credenciales en esa petición.
 
 Por último le damos a "Test LDAP Profile" y esperamos en el **responder**.
-![[captura6.png]]
+[<img src="/assets/images/hackthebox/Authority/captura6.png">](/assets/images/hackthebox/Authority/captura6.png)
 Tenemos usuario: svc_ldap y contraseña: lDaP_1n_th3_cle4r!, probamos a conectarnos con **Evil-winrm** por el puerto **5985** y para dentro, vamos al directorio **Desktop** y ahí tenemos el flag de bajos privilegios.
 
 # PrivEsc
@@ -225,11 +226,11 @@ Y lanzo el siguiente comando para buscar vulnerabilidades.
 ```powershell
 PS C:\Users\svc_ldap\Desktop> ./Certify.exe find /vulnerable
 ```
-![[captura8.png]]
+[<img src="/assets/images/hackthebox/Authority/captura8.png">](/assets/images/hackthebox/Authority/captura8.png)
 Aquí podéis ver que está pasando realmente [Hacktricks](https://book.hacktricks.xyz/windows-hardening/active-directory-methodology/ad-certificates/domain-escalation)
 
 Desde nuestra máquina de atacante con la herramienta **impacket-addcomputer** podemos añadir un nuevo equipo en la máquina víctima gracias al permiso **SeMachineAccountPrivilege**, para posteriormente Solicitar un certificado para suplantar al usuario **Administrador**.
-![[captura7.png]]
+[<img src="/assets/images/hackthebox/Authority/captura7.png">](/assets/images/hackthebox/Authority/captura7.png)
 
 Solicitud de certificado con **certypy**:
 ```bash
