@@ -1,0 +1,4 @@
+# Nmap 7.94SVN scan initiated Sun Dec 24 07:56:47 2023 as: nmap -p- -sS --min-rate 5000 --open -n -Pn -oG allPorts 192.168.0.11
+Host: 192.168.0.11 ()	Status: Up
+Host: 192.168.0.11 ()	Ports: 22/open/tcp//ssh///, 25/open/tcp//smtp///, 80/open/tcp//http///, 139/open/tcp//netbios-ssn///, 445/open/tcp//microsoft-ds///	Ignored State: closed (65530)
+# Nmap done at Sun Dec 24 07:56:49 2023 -- 1 IP address (1 host up) scanned in 2.03 seconds
