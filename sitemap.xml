@@ -8,9 +8,16 @@ layout: null
     <url>
       <loc>{{ site.url }}{{ post.url }}</loc>
       <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-      <changefreq>monthly</changefreq>
+      <changefreq>weekly</changefreq>
       <priority>0.5</priority>
     </url>
     {% endunless %}
   {% endfor %}
 </urlset>
+
+<!-- Páginas estáticas -->
+<url>
+   <loc>{{ site.url }}/about</loc>
+   <changefreq>monthly</changefreq>
+   <priority>0.5</priority>
+</url>
