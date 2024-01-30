@@ -14,10 +14,3 @@ layout: null
     {% endunless %}
   {% endfor %}
 </urlset>
-
-<!-- Páginas estáticas -->
-<url>
-   <loc>{{ site.url }}/about</loc>
-   <changefreq>monthly</changefreq>
-   <priority>0.5</priority>
-</url>
