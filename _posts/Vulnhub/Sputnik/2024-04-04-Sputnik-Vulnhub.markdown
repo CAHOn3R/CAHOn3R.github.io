@@ -1,7 +1,7 @@
 ---
 title: "Sputnik: 1 - Vulnhub"
 layout: post
-date: 2024-04-03 15:10
+date: 2024-04-03 10:10
 tags:
   - Vulnhub
   - Sputnik
@@ -19,6 +19,7 @@ description: Sputnik - Vulnhub
 category: blog
 author: CAHOn3R
 externalLink: false
+---
 
 # Enumeración
 Comenzamos la exploración de la máquina, como es habitual en nuestras pruebas locales, utilizando **arp-scan** para detectar la **IP**.
