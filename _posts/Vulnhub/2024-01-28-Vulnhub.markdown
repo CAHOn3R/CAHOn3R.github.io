@@ -8,6 +8,7 @@ tag:
 - Darkhole 2
 - Symfonos1
 - Natraj
+- Sputnik
 image: /assets/images/Vulnhub.png
 headerImage: true
 projects: true
@@ -17,6 +18,31 @@ category: project
 author: CAHOn3R
 externalLink: false
 ---
+<!-- Sputnik-Vulnhub -->
+
+<figure style="display: flex; align-items: center;">
+  <a href="/Sputnik-Vulnhub" style="flex: 1; text-decoration: none; color: inherit; text-align: left;">
+    <h1 style="font-size: 32px; font-weight: bold; cursor: pointer;">Sputnik</h1>
+  </a>
+  <a href="/Sputnik-Vulnhub" style="flex: 0;">
+    <img src="/assets/images/vulnhub/Sputnik/sputnik.png" alt="Descripción de la imagen" class="imagen-grande">
+  </a>
+</figure>
+
+
+<style>
+  .imagen-grande {
+    margin-left: 10px;
+    margin-bottom: 0;
+    margin-top: 0;
+    vertical-align: middle;
+    /* Define aquí el tamaño que desees */
+    max-width: 300px; /* Puedes ajustar este valor según tus necesidades */
+    height: auto; /* Esto asegura que la relación de aspecto se mantenga */
+  }
+</style>
+
+
 
 
 <!-- Natraj-Vulnhub -->
